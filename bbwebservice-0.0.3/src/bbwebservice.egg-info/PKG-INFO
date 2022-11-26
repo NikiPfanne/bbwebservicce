@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: bbwebservice
+Version: 0.0.3
+Summary: A bare bone webserver
+Author: Lukas
+Author-email: lukasogwalker@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# How to make your first web-app
+```py 
+from bbwebservice.webserver import *
+
+@register(route='/',type=MIME_TYPE.HTML)
+def main_page():
+    return load_file('/content/index.html')
+
+@register(route='/main.css',type=MIME_TYPE.CSS)
+def main_css():
+    return load_file('/content/main.css')
+
+start()
+```
